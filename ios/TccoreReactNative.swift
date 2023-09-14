@@ -1,3 +1,6 @@
+import React
+import Foundation
+
 @objc(TccoreReactNative)
 class TccoreReactNative: NSObject {
 
