@@ -1,5 +1,7 @@
 package com.tccorereactnative;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.facebook.react.bridge.Promise;
@@ -10,10 +12,13 @@ import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.module.annotations.ReactModule;
 import com.tagcommander.lib.core.TCAdditionalProperties;
+import com.tagcommander.lib.core.TCLogger;
 import com.tagcommander.lib.core.TCUser;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.lang.reflect.Field;
 
 @ReactModule(name = TccoreReactNativeModule.NAME)
 public class TccoreReactNativeModule extends ReactContextBaseJavaModule {
@@ -61,6 +66,43 @@ public class TccoreReactNativeModule extends ReactContextBaseJavaModule {
       if (className.equals("TCUser"))
       {
         TCUser.getInstance().addAdditionalProperty(key, value.toArrayList());
+      }
+    }
+  }
+
+  @ReactMethod
+  public void setStringValue(String key, String value, String className)
+  {
+    Object obj = null;
+
+    if (value != null)
+    {
+      Class<?> clazz = null;
+
+      if (className.equals("TCUser"))
+      {
+        clazz = TCUser.getInstance().getClass();
+        obj = TCUser.getInstance();
+      }
+
+      while (clazz != null)
+      {
+        try
+        {
+          Field field = clazz.getDeclaredField(key);
+          field.setAccessible(true);
+          field.set(obj, value);
+          return;
+        }
+        catch (NoSuchFieldException e)
+        {
+          clazz = clazz.getSuperclass();
+        }
+        catch (Exception e)
+        {
+          TCLogger.getInstance().logMessage("Error while setting field for property {"+ key + "} with value {" + value +"}, :" + e.getMessage(), Log.ERROR);
+          return;
+        }
       }
     }
   }

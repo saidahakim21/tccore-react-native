@@ -118,13 +118,13 @@ export class TCUser
     public set country(val: string) 
     {
         this._country = val;
-        TCCoreBridge.setNumValue("country", val, TCUser.name);        
+        TCCoreBridge.setStringValue("country", val, TCUser.name);        
     }
 
     public set anonymous_id(val: string) 
     {
         this._anonymous_id = val;
-        TCCoreBridge.setNumValue("anonymous_id", val, TCUser.name);        
+        TCCoreBridge.setStringValue("anonymous_id", val, TCUser.name);        
     }
 
     public set consent_categories(val: Object) 

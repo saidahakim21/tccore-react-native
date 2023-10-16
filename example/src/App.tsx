@@ -1,31 +1,60 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'tccore-react-native';
+import { TouchableOpacity, StyleSheet, View, Text } from 'react-native';
+import { TCUser } from 'tccore-react-native';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
 
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
+    <View style={styles.appContainer}>
+      <ButtonRow />
     </View>
   );
 }
 
+const ButtonRow = () => {
+  
+  return (
+  <View style={styles.container}>
+
+    <TouchableOpacity
+      style={styles.button}
+      onPress={printValues}>
+      <Text style={styles.buttonText}>Print values</Text>
+    </TouchableOpacity>
+  </View>
+);
+};
+
+
+function printValues()
+{
+  console.log(TCUser.getInstance().anonymous_id)
+  TCUser.getInstance().anonymous_id = "test_anonymous_value"
+  console.log(TCUser.getInstance().anonymous_id)
+}
+
 const styles = StyleSheet.create({
-  container: {
+  appContainer: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
+  container: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 8,
+  },
+  button: {
+    backgroundColor: 'blue',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    marginVertical: 10,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
   },
 });
