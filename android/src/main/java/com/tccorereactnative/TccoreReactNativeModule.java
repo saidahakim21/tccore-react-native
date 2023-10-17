@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Field;
+import java.util.HashMap;
 
 @ReactModule(name = TccoreReactNativeModule.NAME)
 public class TccoreReactNativeModule extends ReactContextBaseJavaModule {
@@ -105,6 +106,24 @@ public class TccoreReactNativeModule extends ReactContextBaseJavaModule {
         }
       }
     }
+  }
+
+  @ReactMethod
+  public void setConsentCategories(ReadableMap value)
+  {
+    TCUser.getInstance().setConsentCategories(new HashMap<>(value));
+  }
+
+  @ReactMethod
+  public void setConsentVendors(ReadableMap value)
+  {
+    TCUser.getInstance().setConsentVendors(new HashMap<>(value));
+  }
+
+  @ReactMethod
+  public void setExternalConsent(ReadableMap value)
+  {
+    TCUser.getInstance().setExternalConsent(new HashMap<>(value));
   }
 
   @ReactMethod

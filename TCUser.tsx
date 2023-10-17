@@ -20,9 +20,9 @@ export class TCUser
     private _zipcode: string;
     private _country: string;
     private _anonymous_id: string;
-    private _consent_categories: Map<String, String> = new Map();
-    private _external_consent: Map<String, String> = new Map();
-    private _consent_vendors: Map<String, String> = new Map();
+    private _consent_categories: Object;
+    private _external_consent: Object;
+    private _consent_vendors: Object;
 
 
     private constructor() { }
@@ -127,22 +127,22 @@ export class TCUser
         TCCoreBridge.setStringValue("anonymous_id", val, TCUser.name);
     }
 
-    public set consent_categories(val: Map<String, String>)
+    public set consent_categories(val: Object)
     {
        this._consent_categories = val;
-       TCCoreBridge.setNumValue("consent_categories", val, TCUser.name);
+       TCCoreBridge.setConsentCategories("consent_categories", val, TCUser.name);
     }
 
-    public set external_consent(val: Map<String, String>)
+    public set external_consent(val: Object)
     {
        this._external_consent = val;
-       TCCoreBridge.setNumValue("external_consent", val, TCUser.name);
+       TCCoreBridge.setExternalConsent("external_consent", val, TCUser.name);
     }
 
-    public set consent_vendors(val: Map<String, String>)
+    public set consent_vendors(val: Object)
     {
        this._consent_vendors = val;
-       TCCoreBridge.setNumValue("consent_vendors", val, TCUser.name);
+       TCCoreBridge.setConsentVendors("consent_vendors", val, TCUser.name);
     }
 
     public get ID()
@@ -220,17 +220,17 @@ export class TCUser
         return this._anonymous_id;
     }
 
-    public get consent_categories()
+    public get getConsentCategories()
     {
         return this._consent_categories;
     }
 
-    public get external_consent()
+    public get getExternalConsent()
     {
         return this._external_consent;
     }
 
-    public get consent_vendors()
+    public get getConsentVendors()
     {
         return this._consent_vendors;
     }
