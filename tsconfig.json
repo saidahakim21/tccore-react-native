@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "tccore-react-native": ["./src/index"]
+      "tccore-react-native": ["./index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
