@@ -10,6 +10,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.module.annotations.ReactModule;
 import com.tagcommander.lib.core.TCAdditionalProperties;
 import com.tagcommander.lib.core.TCLogger;
@@ -20,6 +21,7 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
+import java.util.Map;
 
 @ReactModule(name = TccoreReactNativeModule.NAME)
 public class TccoreReactNativeModule extends ReactContextBaseJavaModule {
@@ -111,19 +113,35 @@ public class TccoreReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void setConsentCategories(ReadableMap value)
   {
-    TCUser.getInstance().setConsentCategories(new HashMap<>(value));
+    TCUser.getInstance().setConsentCategories(convertReadableMapToHashMap(value));
   }
 
   @ReactMethod
   public void setConsentVendors(ReadableMap value)
   {
-    TCUser.getInstance().setConsentVendors(new HashMap<>(value));
+    TCUser.getInstance().setConsentVendors(convertReadableMapToHashMap(value));
   }
 
   @ReactMethod
   public void setExternalConsent(ReadableMap value)
   {
-    TCUser.getInstance().setExternalConsent(new HashMap<>(value));
+    TCUser.getInstance().setExternalConsent(convertReadableMapToHashMap(value));
+  }
+
+  HashMap<String, String> convertReadableMapToHashMap(ReadableMap readableMap)
+  {
+    HashMap<String, String> hashMap = new HashMap<>();
+
+    ReadableMapKeySetIterator iterator = readableMap.keySetIterator();
+    while (iterator.hasNextKey())
+    {
+      String key = iterator.nextKey();
+      String value = readableMap.getString(key);
+
+      hashMap.put(key, value);
+    }
+
+    return hashMap;
   }
 
   @ReactMethod
