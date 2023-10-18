@@ -4,7 +4,6 @@
   "description": "CommandersAct's TCCore mobile library bridge to react-native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
-  "types": "lib/index.d.ts",
   "react-native": "src/index",
   "source": "src/index",
   "type": "module",
