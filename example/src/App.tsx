@@ -1,18 +1,19 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'tccore-react-native';
+import {TCUser} from "tccore-react-native";
 
+
+function testibbg()
+{
+  TCUser.getInstance().ID = 12
+}
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
+  testibbg()
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Result: TCUser </Text>
     </View>
   );
 }
