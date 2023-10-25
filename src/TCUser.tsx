@@ -37,112 +37,166 @@ export class TCUser
         return TCUser.instance;
     }
 
-    public set ID(val: string)
+    public set ID(val: string) 
     {
-        this._ID = val;
-        TCCoreBridge.setStringValue("ID", val, TCUser.name);
+        if (this._ID !== val) 
+        {
+            this._ID = val;
+            TCCoreBridge.setStringValue("ID", val, TCUser.name);
+        }
     }
 
-    public set email(val: string)
+    public set email(val: string) 
     {
-        this._email = val;
-        TCCoreBridge.setStringValue("email", val, TCUser.name);
+        if (this._email !== val) 
+        {
+            this._email = val;
+            TCCoreBridge.setStringValue("email", val, TCUser.name);
+        }
     }
 
-    public set email_md5(val: string)
+    public set email_md5(val: string) 
     {
-        this._email_md5 = val;
-        TCCoreBridge.setStringValue("email_md5", val, TCUser.name);
+        if (this._email_md5 !== val) 
+        {
+            this._email_md5 = val;
+            TCCoreBridge.setStringValue("email_md5", val, TCUser.name);
+        }
     }
 
-    public set email_sha256(val: string)
+    public set email_sha256(val: string) 
     {
-        this._email_sha256 = val;
-        TCCoreBridge.setStringValue("email_sha256", val, TCUser.name);
+        if (this._email_sha256 !== val)
+        {
+            this._email_sha256 = val;
+            TCCoreBridge.setStringValue("email_sha256", val, TCUser.name);
+        }
     }
 
-    public set consentID(val: string)
+    public set consentID(val: string) 
     {
-        this._consentID = val;
-        TCCoreBridge.setStringValue("consentID", val, TCUser.name);
+        if (this._consentID !== val) 
+        {
+            this._consentID = val;
+            TCCoreBridge.setStringValue("consentID", val, TCUser.name);
+        }
     }
 
-    public set phoneNumber(val: string)
+    public set phoneNumber(val: string) 
     {
-        this._phoneNumber = val;
-        TCCoreBridge.setStringValue("phoneNumber", val, TCUser.name);
+        if (this._phoneNumber !== val) 
+        {
+            this._phoneNumber = val;
+            TCCoreBridge.setStringValue("phoneNumber", val, TCUser.name);
+        }
     }
 
-    public set firstName(val: string)
+    public set firstName(val: string) 
     {
-        this._firstName = val;
-        TCCoreBridge.setStringValue("firstName", val, TCUser.name);
+        if (this._firstName !== val) 
+        {
+            this._firstName = val;
+            TCCoreBridge.setStringValue("firstName", val, TCUser.name);
+        }
     }
 
-    public set lastName(val: string)
+    public set lastName(val: string) 
     {
-        this._lastName = val;
-        TCCoreBridge.setStringValue("lastName", val, TCUser.name);
+        if (this._lastName !== val) 
+        {
+            this._lastName = val;
+            TCCoreBridge.setStringValue("lastName", val, TCUser.name);
+        }
     }
 
-    public set gender(val: string)
+    public set gender(val: string) 
     {
-        this._gender = val;
-        TCCoreBridge.setStringValue("gender", val, TCUser.name);
+        if (this._gender !== val) 
+        {
+            this._gender = val;
+            TCCoreBridge.setStringValue("gender", val, TCUser.name);
+        }
     }
 
-    public set birthdate(val: string)
+    public set birthdate(val: string) 
     {
-        this._birthdate = val;
-        TCCoreBridge.setStringValue("birthdate", val, TCUser.name);
+        if (this._birthdate !== val) 
+        {
+            this._birthdate = val;
+            TCCoreBridge.setStringValue("birthdate", val, TCUser.name);
+        }
     }
 
-    public set city(val: string)
+    public set city(val: string) 
     {
-        this._city = val;
-        TCCoreBridge.setStringValue("city", val, TCUser.name);
+        if (this._city !== val) 
+        {
+            this._city = val;
+            TCCoreBridge.setStringValue("city", val, TCUser.name);
+        }
     }
 
-    public set state(val: string)
+    public set state(val: string) 
     {
-        this._state = val;
-        TCCoreBridge.setStringValue("state", val, TCUser.name);
+        if (this._state !== val) 
+        {
+            this._state = val;
+            TCCoreBridge.setStringValue("state", val, TCUser.name);
+        }
     }
 
     public set zipcode(val: string)
-    {
-        this._zipcode = val;
-        TCCoreBridge.setStringValue("zipcode", val, TCUser.name);
+     {
+        if (this._zipcode !== val) 
+        {
+            this._zipcode = val;
+            TCCoreBridge.setStringValue("zipcode", val, TCUser.name);
+        }
     }
 
-    public set country(val: string)
+    public set country(val: string) 
     {
-        this._country = val;
-        TCCoreBridge.setStringValue("country", val, TCUser.name);
+        if (this._country !== val) 
+        {
+            this._country = val;
+            TCCoreBridge.setStringValue("country", val, TCUser.name);
+        }
     }
 
     public set anonymous_id(val: string)
-    {
-        this._anonymous_id = val;
-        TCCoreBridge.setStringValue("anonymous_id", val, TCUser.name);
+     {
+        if (this._anonymous_id !== val) 
+        {
+            this._anonymous_id = val;
+            TCCoreBridge.setStringValue("anonymous_id", val, TCUser.name);
+        }
     }
 
-    public set consent_categories(val: Object)
+    public set consent_categories(val: Object) 
     {
-       this._consent_categories = val;
-       TCCoreBridge.setConsentCategories("consent_categories", val, TCUser.name);
+        if (this._consent_categories !== val) 
+        {
+            this._consent_categories = val;
+            TCCoreBridge.setConsentCategories("consent_categories", val, TCUser.name);
+        }
     }
 
-    public set external_consent(val: Object)
+    public set external_consent(val: Object) 
     {
-       this._external_consent = val;
-       TCCoreBridge.setExternalConsent("external_consent", val, TCUser.name);
+        if (this._external_consent !== val)
+         {
+            this._external_consent = val;
+            TCCoreBridge.setExternalConsent("external_consent", val, TCUser.name);
+        }
     }
 
-    public set consent_vendors(val: Object)
+    public set consent_vendors(val: Object) 
     {
-       this._consent_vendors = val;
-       TCCoreBridge.setConsentVendors("consent_vendors", val, TCUser.name);
+        if (this._consent_vendors !== val) 
+        {
+            this._consent_vendors = val;
+            TCCoreBridge.setConsentVendors("consent_vendors", val, TCUser.name);
+        }
     }
 
     public get ID()
@@ -299,5 +353,5 @@ export class TCUser
     {
         this.additionalProperties.clear();
         TCCoreBridge.clearAdditionalProperties(TCUser.name)
-    }
+    }  
 }
