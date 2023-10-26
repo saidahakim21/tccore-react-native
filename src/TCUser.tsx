@@ -306,6 +306,10 @@ export class TCUser
        this._zipcode = properties["zipcode"] as string;
        this._country = properties["country"] as string;
        this._anonymous_id = properties["consistent_anonymous_id"] as string;
+
+       this._consent_categories = properties["consent_categories"] as Object;
+       this._consent_vendors = properties["consent_vendors"] as Object;
+       this._external_consent = properties["external_consent"] as Object;
     }
 
     addAdditionalProperty(key: string, value: string)

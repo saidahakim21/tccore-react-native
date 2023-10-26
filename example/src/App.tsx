@@ -6,8 +6,9 @@ import {TCUser} from "tccore-react-native";
 
 function testibbg()
 {
-  TCUser.getInstance().ID = 12
+  TCUser.getInstance().ID = "12"
 }
+
 export default function App() {
 
   testibbg()
