@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.license = { :type => "Commercial", :file => "LICENSE" }
   s.authors = { "CommandersAct" => "mobile@commandersact.com" }
   s.platforms = { :ios => "11.0" }
-  s.source = { :git => "https://github.com/saidahakim21/tccore-react-native.git", :tag => "1.0.0" }
+  s.source = { :git => "https://github.com/commandersAct/tccore-react-native.git", :tag => package["version"] }
   s.source_files = "ios/**/*.{swift}"
   s.requires_arc = true
   s.swift_version = "5.0"

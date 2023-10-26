@@ -4,8 +4,8 @@ package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
 Pod::Spec.new do |s|
   s.name = "tccore-react-native"
-  s.version = "0.1.2"
-  s.summary = "Beta bridge for TCCore library"
+  s.version = package["version"]
+  s.summary = package["description"]
   s.description = <<-DESC
                   Commanders Act React Native Bridge
                    DESC

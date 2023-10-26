@@ -46,13 +46,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/CommandersAct/AndroidV5/tree/master/TCCore",
+  "repository": "https://github.com/CommandersAct/tccore-react-native/tree/master/",
   "author": "CommandersAct <mobile@commandersact.com> (https://www.commandersact.com/en/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CommandersAct/AndroidV5/tree/master/TCCore/issues"
+    "url": "https://github.com/CommandersAct/tccore-react-native/tree/master/issues"
   },
-  "homepage": "https://github.com/CommandersAct/AndroidV5/tree/master/TCCore#readme",
+  "homepage": "https://github.com/CommandersAct/tccore-react-native/tree/master#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
